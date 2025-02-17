@@ -44,8 +44,8 @@ WebDriver driver = new ChromeDriver();
 	public void hobbesect() throws InterruptedException {
 		driver.findElement(By.xpath("//input[@id='checkbox2']")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[@id='msdd']")).sendKeys("Hindi");
-		driver.findElement(By.xpath("//select[@id='Skills']"));
+		driver.findElement(By.xpath("//div[@id='msdd']")).click();
+		driver.findElement(By.xpath("//a[contains(text(), 'English')]")).click();
 	}
 	
 	@Test(priority=4)
@@ -61,12 +61,10 @@ WebDriver driver = new ChromeDriver();
 	
 	@Test(priority=5)
 	public void country() {
-	WebElement drop2 =	driver.findElement(By.xpath("//span[@role='combobox']"));
-
-		Select select =new Select(drop2);
-		select.selectByVisibleText("India");
-		WebElement drop3 = driver.findElement(By.xpath("//select[@id='yearbox']"));
-		Select coun = new Select(drop3);
+			driver.findElement(By.xpath("//span[@role='combobox']")).click();
+		driver.findElement(By.xpath("//input[@role='textbox']")).sendKeys("India");
+		driver.findElement(By.xpath("//li[@role='treeitem']")).click();
+	
 		
 	}
 		@Test(priority=6)
